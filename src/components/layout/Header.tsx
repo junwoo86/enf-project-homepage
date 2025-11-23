@@ -27,9 +27,9 @@ const Header: React.FC = () => {
               <li key={item.id}>
                 <Link
                   to={item.path}
-                  className={`text-xs md:text-sm font-medium transition-colors ${
+                  className={`text-sm md:text-base font-medium transition-colors ${
                     item.isLogo
-                      ? 'text-base md:text-lg font-bold text-white'
+                      ? 'text-lg md:text-xl font-bold text-white'
                       : isActive(item.path)
                       ? 'text-white'
                       : 'text-gray-400 hover:text-white'
@@ -42,7 +42,7 @@ const Header: React.FC = () => {
           </ul>
 
           {/* Company Name - Hidden on mobile */}
-          <p className="hidden md:block text-sm text-gray-400">
+          <p className="hidden md:block text-base text-gray-400">
             <strong className="text-white">{siteData.companyInfo.name}</strong>
           </p>
         </nav>
