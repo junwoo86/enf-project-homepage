@@ -60,7 +60,7 @@ const ContactInfoSection: React.FC<ContactInfoSectionProps> = ({
   if (email || businessNumber) {
     return (
       <section className={`py-12 ${className}`}>
-        <Container>
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="space-y-4">
             {email && (
               <p className="font-bold">
@@ -83,7 +83,7 @@ const ContactInfoSection: React.FC<ContactInfoSectionProps> = ({
               <p className="font-bold text-gray-700">{address}</p>
             )}
           </div>
-        </Container>
+        </div>
       </section>
     );
   }
