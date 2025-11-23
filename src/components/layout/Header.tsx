@@ -11,7 +11,6 @@ interface NavItem {
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
   const navItems: NavItem[] = siteData.navigation.items;
 
@@ -34,17 +33,17 @@ const Header: React.FC = () => {
         isScrolled ? 'bg-white shadow-sm' : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <nav className="flex items-center justify-between h-20">
-          {/* Logo & Navigation */}
-          <ul className="hidden md:flex items-center gap-8">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+        <nav className="flex items-center justify-between h-16 md:h-20">
+          {/* Logo & Navigation - Always horizontal */}
+          <ul className="flex items-center gap-4 md:gap-8">
             {navItems.map((item) => (
               <li key={item.id}>
                 <Link
                   to={item.path}
-                  className={`text-sm font-medium transition-colors ${
+                  className={`text-xs md:text-sm font-medium transition-colors ${
                     item.isLogo
-                      ? 'text-lg font-bold'
+                      ? 'text-base md:text-lg font-bold'
                       : isActive(item.path)
                       ? 'text-black'
                       : 'text-gray-600 hover:text-black'
@@ -56,69 +55,11 @@ const Header: React.FC = () => {
             ))}
           </ul>
 
-          {/* Company Name */}
+          {/* Company Name - Hidden on mobile */}
           <p className="hidden md:block text-sm text-gray-600">
             <strong>{siteData.companyInfo.name}</strong>
           </p>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden p-2"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="메뉴 열기"
-          >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              {isMobileMenuOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              )}
-            </svg>
-          </button>
-
-          {/* Mobile Logo */}
-          <Link to="/home" className="md:hidden text-lg font-bold">
-            ENFPROJECT
-          </Link>
         </nav>
-
-        {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden bg-white border-t">
-            <ul className="py-4">
-              {navItems.map((item) => (
-                <li key={item.id}>
-                  <Link
-                    to={item.path}
-                    className={`block px-4 py-3 text-sm ${
-                      isActive(item.path)
-                        ? 'text-black font-medium'
-                        : 'text-gray-600'
-                    }`}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
       </div>
     </header>
   );
