@@ -17,7 +17,7 @@ const Footer: React.FC = () => {
                 <span className="ml-2">Business License {footer.businessNumber}</span>
               )}
             </p>
-            {footer.email && <p>Email. {footer.email}</p>}
+            {footer.email && <p><span className="font-semibold">Email.</span> {footer.email}</p>}
           </div>
 
           {/* Links */}
