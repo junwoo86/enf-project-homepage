@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import siteData from '../../data/siteStructure.json';
 
@@ -10,18 +10,8 @@ interface NavItem {
 }
 
 const Header: React.FC = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
   const navItems: NavItem[] = siteData.navigation.items;
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const isActive = (path: string) => {
     return location.pathname === path || location.pathname === path.toLowerCase();
