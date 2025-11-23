@@ -1,10 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { HomePage, AboutPage, WorkPage, WorkDetailPage, ContactPage } from './pages';
+import { ScrollToTop } from './components/layout';
 
 const App: React.FC = () => {
   return (
     <Router>
+      <ScrollToTop />
       <Routes>
         {/* Main Routes */}
         <Route path="/" element={<Navigate to="/home" replace />} />
