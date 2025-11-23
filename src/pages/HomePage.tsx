@@ -10,6 +10,21 @@ const HomePage: React.FC = () => {
 
   return (
     <Layout>
+      {/* Logo Marquee - Below Navigation */}
+      <div className="w-full h-11 md:h-14 bg-white overflow-hidden border-b border-gray-100">
+        <div className="animate-marquee flex items-center h-full whitespace-nowrap">
+          {/* Repeat images for seamless loop */}
+          {[...Array(20)].map((_, i) => (
+            <img
+              key={i}
+              src="/logo_move.png"
+              alt=""
+              className="h-6 md:h-8 w-auto mx-8 object-contain"
+            />
+          ))}
+        </div>
+      </div>
+
       {/* Hero Section with Background Image */}
       {heroSection && (
         <>
