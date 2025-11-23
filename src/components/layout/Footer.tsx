@@ -1,20 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import siteData from '../../data/siteStructure.json';
-import { Divider } from '../ui';
 
 const Footer: React.FC = () => {
   const { footer } = siteData;
 
   return (
-    <footer className="bg-white py-12">
-      <Divider className="mb-8" />
+    <footer className="bg-black py-12">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
           {/* Company Info */}
-          <div className="text-sm text-gray-600 space-y-1">
+          <div className="text-sm text-gray-400 space-y-1">
             <p>
-              <span className="font-bold text-black">{footer.companyName}</span>
+              <span className="font-bold text-white">{footer.companyName}</span>
               {footer.businessNumber && (
                 <span className="ml-2">Business License {footer.businessNumber}</span>
               )}
@@ -28,12 +26,12 @@ const Footer: React.FC = () => {
               <React.Fragment key={link.label}>
                 <Link
                   to={link.url}
-                  className="text-gray-600 hover:text-black transition-colors"
+                  className="text-gray-400 hover:text-white transition-colors"
                 >
                   {link.label}
                 </Link>
                 {index < footer.links.length - 1 && (
-                  <span className="text-gray-300">|</span>
+                  <span className="text-gray-600">|</span>
                 )}
               </React.Fragment>
             ))}
