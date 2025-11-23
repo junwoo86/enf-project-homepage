@@ -15,7 +15,7 @@ const samplePortfolioItems: {
   {
     id: 'zipiderm',
     title: 'ZIPIDERM',
-    category: 'healthcare',
+    category: 'cosmetics',
     tags: ['Brand Development', 'Package Design', 'Marketing Strategy'],
     imageUrl: '/portfolio/ZIPIDERM_title.png',
     path: '/work/zipiderm',
