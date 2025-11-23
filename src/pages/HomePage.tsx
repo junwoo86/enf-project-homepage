@@ -19,7 +19,7 @@ const HomePage: React.FC = () => {
               key={i}
               src="/logo_move.png"
               alt=""
-              className="h-6 md:h-8 w-auto mx-8 object-contain"
+              className="h-6 md:h-8 w-auto mx-4 md:mx-8 object-contain"
             />
           ))}
         </div>
